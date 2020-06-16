@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    private LastEventFragmentCollectionAdapter adapter;
+    private EventFragmentCollectionAdapter adapter;
 
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        adapter = new LastEventFragmentCollectionAdapter(getSupportFragmentManager());
+        adapter = new EventFragmentCollectionAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
     }
 }

@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class LastEventsFragment extends Fragment {
+public class EventsFragment extends Fragment {
 
 
-    public LastEventsFragment() {
+    public EventsFragment() {
         // Required empty public constructor
     }
 
@@ -19,6 +19,6 @@ public class LastEventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_last_events, container, false);
+        return inflater.inflate(R.layout.fragment_events, container, false);
     }
 }

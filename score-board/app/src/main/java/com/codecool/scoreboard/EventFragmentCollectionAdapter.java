@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class LastEventFragmentCollectionAdapter extends FragmentStatePagerAdapter {
+public class EventFragmentCollectionAdapter extends FragmentStatePagerAdapter {
 
-    public LastEventFragmentCollectionAdapter(@NonNull FragmentManager fm) {
+    public EventFragmentCollectionAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
@@ -17,7 +17,7 @@ public class LastEventFragmentCollectionAdapter extends FragmentStatePagerAdapte
     @Override
     public Fragment getItem(int position) {
 
-        LastEventsFragment lastEventsFragment = new LastEventsFragment();
+        EventsFragment lastEventsFragment = new EventsFragment();
         Bundle bundle = new Bundle();
         position = position + 1;
         lastEventsFragment.setArguments(bundle);
