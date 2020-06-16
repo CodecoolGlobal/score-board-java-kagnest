@@ -35,8 +35,6 @@ public class Match implements Parcelable {
     @NonNull
     private String startTime;
     @NonNull
-    private String videoURL;
-    @NonNull
     private int homeScore;
     @NonNull
     private int awayScore;
@@ -55,7 +53,6 @@ public class Match implements Parcelable {
         season = parcel.readString();
         dateEvent = parcel.readString();
         startTime = parcel.readString();
-        videoURL = parcel.readString();
         homeScore = parcel.readInt();
         awayScore = parcel.readInt();
         homeGoalDetails = parcel.readString();
@@ -77,7 +74,6 @@ public class Match implements Parcelable {
         dest.writeString(season);
         dest.writeString(dateEvent);
         dest.writeString(startTime);
-        dest.writeString(videoURL);
         dest.writeInt(homeScore);
         dest.writeInt(awayScore);
         dest.writeString(homeGoalDetails);
