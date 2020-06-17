@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".teamdetails.TeamActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/team_header"
+            layout="@layout/team_header"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/team_details"
+            layout="@layout/team_details"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/stadium_details"
+            layout="@layout/stadium_details"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/error_page"
+            layout="@layout/error_page"
+            android:visibility="gone"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
