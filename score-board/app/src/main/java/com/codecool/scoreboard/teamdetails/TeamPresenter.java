@@ -41,12 +41,11 @@ public class TeamPresenter implements TeamContract.Presenter {
 
                     @Override
                     public void onSubscribe(Disposable d) {
-
                     }
 
                     @Override
                     public void onSuccess(TeamResponse response) {
-                        if (!response.getTeams().isEmpty()){
+                        if (!response.getTeams().isEmpty()) {
                             TeamResponse.Teams teamResponse = response.getTeams().get(0);
                             Team team = DataAdapter.convertToTeam(teamResponse);
                             view.showTeam(team);
