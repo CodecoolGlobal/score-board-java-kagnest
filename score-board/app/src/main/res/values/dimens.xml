@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="error_msg_text_size">24sp</dimen>
+    <dimen name="team_text_space">16dp</dimen>
+    <dimen name="alt_name_spacing">32dp</dimen>
+    <dimen name="team_desc_spacing">32dp</dimen>
+    <dimen name="leagues_spacing">32dp</dimen>
+    <dimen name="error_page_margin">16dp</dimen>
+    <dimen name="stadium_img_height">140dp</dimen>
+    <dimen name="stadium_img_width">0dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="margin32">32dp</dimen>
+    <dimen name="website_btn_margin">24dp</dimen>
+    <dimen name="team_name_textsize">40sp</dimen>
+    <dimen name="team_logo_width">140dp</dimen>
+    <dimen name="team_logo_height">100dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+</resources>
