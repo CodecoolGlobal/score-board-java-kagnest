@@ -1,14 +1,16 @@
 package com.codecool.scoreboard.model;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class DataAdapter {
 
-    public Team convertToTeam(TeamResponse.Teams response){
+    public static Team convertToTeam(TeamResponse.Teams response) {
         String leagues = createLeaguesText(response);
-        return new Team(response.getStrTeam(),
+        return new Team(
                 response.getIdTeam(),
+                response.getStrTeam(),
                 response.getStrAlternate(),
                 response.getIntFormedYear(),
                 response.getStrSport(),
@@ -20,10 +22,10 @@ public class DataAdapter {
                 response.getStrDescriptionEN(),
                 response.getStrTeamLogo(),
                 response.getStrYoutube()
-                );
+        );
     }
 
-    private String createLeaguesText(TeamResponse.Teams response){
+    private static String createLeaguesText(TeamResponse.Teams response) {
         List<String> leaguesList = new ArrayList<>(Arrays.asList(response.getStrLeague(), response.getIdLeague2(),
                 response.getIdLeague3(), response.getIdLeague4(), response.getIdLeague5()));
         leaguesList.removeAll(Arrays.asList("", null));

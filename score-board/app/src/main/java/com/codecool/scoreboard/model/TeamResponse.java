@@ -485,5 +485,4 @@ public class TeamResponse {
             this.idTeam = idTeam;
         }
     }
-
 }

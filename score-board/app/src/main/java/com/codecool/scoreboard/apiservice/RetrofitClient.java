@@ -9,9 +9,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     private static Retrofit retrofit = null;
-    private  static String BASE_URL = "https://www.thesportsdb.com/api/v1/json/1/";
+    private static String BASE_URL = "https://www.thesportsdb.com/api/v1/json/1/";
 
-    public static Retrofit getClient(){
+    public static Retrofit getClient() {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
