@@ -10,6 +10,8 @@ public interface TeamContract {
 
         void showTeam(Team team);
 
+        void showEmptyTeamData();
+
         void showErrorMessage(String errorMessage);
     }
 
