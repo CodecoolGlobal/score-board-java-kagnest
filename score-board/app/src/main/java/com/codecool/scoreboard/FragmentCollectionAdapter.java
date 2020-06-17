@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class EventFragmentCollectionAdapter extends FragmentStatePagerAdapter {
+public class FragmentCollectionAdapter extends FragmentStatePagerAdapter {
 
-    public EventFragmentCollectionAdapter(@NonNull FragmentManager fm) {
+    public FragmentCollectionAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
@@ -20,6 +20,10 @@ public class EventFragmentCollectionAdapter extends FragmentStatePagerAdapter {
         EventsFragment lastEventsFragment = new EventsFragment();
         Bundle bundle = new Bundle();
         position = position + 1;
+        if (position == 0) {
+
+        }
+
         lastEventsFragment.setArguments(bundle);
         return lastEventsFragment;
     }
