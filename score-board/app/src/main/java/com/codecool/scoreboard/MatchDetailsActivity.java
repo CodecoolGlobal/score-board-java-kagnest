@@ -1,5 +1,6 @@
 package com.codecool.scoreboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -45,7 +46,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
     @BindView(R.id.awayYellowCard)
     TextView awayYellowCard;
 
-    String matchId;
+    Match match;
 
 
     @Override
@@ -54,9 +55,9 @@ public class MatchDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_match_details_page);
         ButterKnife.bind(this);
 
-        //Intent intent = getIntent();
-        //matchId = intent.getStringExtra();
-
+        Intent intent = getIntent();
+        match = intent.getParcelableExtra("match");
+        displayData(match);
     }
     private void displayData(Match match) {
         event.setText(match.getEvent());

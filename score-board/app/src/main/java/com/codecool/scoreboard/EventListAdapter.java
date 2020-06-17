@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codecool.scoreboard.model.Match;
 import com.codecool.scoreboard.model.MatchResponse;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.EventListHolder> {
 
     List<MatchResponse> events;
-    String matchId;
+    Match match;
 
     public EventListAdapter(List<MatchResponse> events) {
         this.events = events;
@@ -36,7 +37,18 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         holder.homeTeam.setText(matchResponse.getStrHomeTeam());
         holder.awayTeam.setText(matchResponse.getStrAwayTeam());
         holder.event.setText(matchResponse.getStrEvent());
-        matchId = matchResponse.getIdEvent();
+        match = new Match(matchResponse.getIdEvent(),
+                matchResponse.getStrEvent(),
+                matchResponse.getStrLeague(),
+                matchResponse.getStrSeason(),
+                matchResponse.getDateEvent(),
+                matchResponse.getStrTime(),
+                Integer.parseInt(matchResponse.getIntHomeScore()),
+                Integer.parseInt(matchResponse.getIntAwayScore()),
+                matchResponse.getStrHomeGoalDetails(),
+                matchResponse.getStrHomeYellowCards(),
+                matchResponse.getStrAwayGoalDetails(),
+                matchResponse.getStrAwayYellowCards());
     }
 
     @Override
@@ -60,7 +72,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(), MatchDetailsActivity.class);
-                    intent.putExtra("matchId", matchId);
+                    intent.putExtra("match", match);
                     itemView.getContext().startActivity(intent);
                 }
             });
