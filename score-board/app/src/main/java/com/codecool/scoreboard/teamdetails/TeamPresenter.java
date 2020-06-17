@@ -46,9 +46,13 @@ public class TeamPresenter implements TeamContract.Presenter {
 
                     @Override
                     public void onSuccess(TeamResponse response) {
-                        TeamResponse.Teams teamResponse = response.getTeams().get(0);
-                        Team team = DataAdapter.convertToTeam(teamResponse);
-                        view.showTeam(team);
+                        if (!response.getTeams().isEmpty()){
+                            TeamResponse.Teams teamResponse = response.getTeams().get(0);
+                            Team team = DataAdapter.convertToTeam(teamResponse);
+                            view.showTeam(team);
+                        } else {
+                            view.showEmptyTeamData();
+                        }
                     }
 
                     @Override
