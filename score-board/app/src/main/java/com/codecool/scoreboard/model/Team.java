@@ -8,24 +8,26 @@ public class Team {
     private String formedYear;
     private String sportCategory;
     private String league;
-    private String stadium;
+    private String stadiumName;
     private String stadiumImage;
     private String stadiumLocation;
+    private String stadiumDesc;
     private String website;
     private String description;
     private String teamLogo;
     private String youtubeVideo;
 
-    public Team(String id, String teamName, String alternateNames, String formedYear, String sportCategory, String league, String stadium, String stadiumImage, String stadiumLocation, String website, String description, String teamLogo, String youtubeVideo) {
+    public Team(String id, String teamName, String alternateNames, String formedYear, String sportCategory, String league, String stadiumName, String stadiumImage, String stadiumLocation, String stadiumDesc, String website, String description, String teamLogo, String youtubeVideo) {
         this.id = id;
         this.teamName = teamName;
         this.alternateNames = alternateNames;
         this.formedYear = formedYear;
         this.sportCategory = sportCategory;
         this.league = league;
-        this.stadium = stadium;
+        this.stadiumName = stadiumName;
         this.stadiumImage = stadiumImage;
         this.stadiumLocation = stadiumLocation;
+        this.stadiumDesc = stadiumDesc;
         this.website = website;
         this.description = description;
         this.teamLogo = teamLogo;
@@ -80,14 +82,6 @@ public class Team {
         this.league = league;
     }
 
-    public String getStadium() {
-        return stadium;
-    }
-
-    public void setStadium(String stadium) {
-        this.stadium = stadium;
-    }
-
     public String getStadiumImage() {
         return stadiumImage;
     }
@@ -102,6 +96,14 @@ public class Team {
 
     public void setStadiumLocation(String stadiumLocation) {
         this.stadiumLocation = stadiumLocation;
+    }
+
+    public String getStadiumName() {
+        return stadiumName;
+    }
+
+    public String getStadiumDesc() {
+        return stadiumDesc;
     }
 
     public String getWebsite() {

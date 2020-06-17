@@ -17,6 +17,7 @@ public class DataAdapter {
                 leagues,
                 response.getStrStadium(),
                 response.getStrStadiumThumb(),
+                response.getStrStadiumLocation(),
                 response.getStrStadiumDescription(),
                 response.getStrWebsite(),
                 response.getStrDescriptionEN(),
@@ -26,8 +27,8 @@ public class DataAdapter {
     }
 
     private static String createLeaguesText(TeamResponse.Teams response) {
-        List<String> leaguesList = new ArrayList<>(Arrays.asList(response.getStrLeague(), response.getIdLeague2(),
-                response.getIdLeague3(), response.getIdLeague4(), response.getIdLeague5()));
+        List<String> leaguesList = new ArrayList<>(Arrays.asList(response.getStrLeague(), response.getStrLeague2(),
+                response.getStrLeague3(), response.getStrLeague4(), response.getStrLeague5()));
         leaguesList.removeAll(Arrays.asList("", null));
 
         StringBuilder sb = new StringBuilder();
