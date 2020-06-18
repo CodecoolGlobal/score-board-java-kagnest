@@ -23,7 +23,7 @@
     <string name="away">Away</string>
     <string name="latest_15_events">Latest 15 events</string>
     <string name="more_details">Details</string>
-    <string name="yellow_cards">Yellow cards:</string>
-    <string name="goals">Goals:</string>
+    <string name="yellow_cards">YELLOW CARDS</string>
+    <string name="goals">GOALS</string>
     <string name="next_15_events_title">Next 15 Events</string>
 </resources>
