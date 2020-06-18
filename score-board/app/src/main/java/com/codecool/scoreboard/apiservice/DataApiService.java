@@ -11,8 +11,12 @@ import retrofit2.http.Query;
 public interface DataApiService {
 
     @GET("lookupteam.php")
-    Single<TeamResponse> getTeamById(@Query("id") int teamId);
+    Single<TeamResponse> getTeamById(@Query("id") String teamId);
 
     @GET("eventspastleague.php?id=4328")
-    Observable<Event> getListOfMatchById();
+    Observable<Event> getListOfLastMatchesById();
+
+
+    @GET("eventsnextleague.php?id=4328")
+    Single<Event> getListOfNextMatchesById();
 }
