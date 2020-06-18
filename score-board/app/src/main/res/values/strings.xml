@@ -10,15 +10,15 @@
     <string name="stadium_image_desc">stadium image</string>
     <string name="website_btn_label">Website</string>
     <string name="video_btn_label">Video</string>
-    <string name="title_activity_match_details">MatchDetailsActivity</string>
+    <string name="title_activity_match_details" translatable="false">MatchDetailsActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
     <string name="home">Home</string>
     <string name="away">Away</string>
     <string name="latest_15_events">Latest 15 events</string>
