@@ -76,7 +76,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
         homeScore.setText(match.getHomeScore() + "");
         awayScore.setText(match.getAwayScore() + "");
 
-        System.out.println("ITT VAN A HOMEGD" + match.getHomeGoalDetails());
+        System.out.println("ITT VAN A HOMEGoalDetails" + match.getHomeGoalDetails());
         if (match.getHomeGoalDetails() == null) {
             homeGoalDetails.setText("");
             goalText.setVisibility(View.GONE);
