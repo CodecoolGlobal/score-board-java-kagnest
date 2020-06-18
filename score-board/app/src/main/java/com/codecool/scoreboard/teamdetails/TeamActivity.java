@@ -67,7 +67,7 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
 
         ButterKnife.bind(this);
 
-        int id = Integer.parseInt(getIntent().getStringExtra("id"));
+        String id = getIntent().getStringExtra("id");
         presenter.getTeamById(id);
     }
 

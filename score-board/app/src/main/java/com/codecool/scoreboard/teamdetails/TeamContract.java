@@ -16,6 +16,6 @@ public interface TeamContract {
     }
 
     interface Presenter extends BasePresenter {
-        void getTeamById(int id);
+        void getTeamById(String id);
     }
 }

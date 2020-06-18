@@ -33,7 +33,7 @@ public class TeamPresenter implements TeamContract.Presenter {
         this.view = null;
     }
 
-    public void getTeamById(int id) {
+    public void getTeamById(String id) {
         dataApiService.getTeamById(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
