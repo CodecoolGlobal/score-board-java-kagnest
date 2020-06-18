@@ -47,9 +47,25 @@ public class Match implements Parcelable {
     @NonNull
     private String awayYellowCards;
 
+    public Match(@NonNull String idEvent, @NonNull String event, @NonNull String league, @NonNull String season, @NonNull String dateEvent, @NonNull String startTime, int homeScore, int awayScore, @NonNull String homeGoalDetails, @NonNull String homeYellowCards, @NonNull String awayGoalDetails, @NonNull String awayYellowCards) {
+        this.idEvent = idEvent;
+        this.event = event;
+        this.league = league;
+        this.season = season;
+        this.dateEvent = dateEvent;
+        this.startTime = startTime;
+        this.homeScore = homeScore;
+        this.awayScore = awayScore;
+        this.homeGoalDetails = homeGoalDetails;
+        this.homeYellowCards = homeYellowCards;
+        this.awayGoalDetails = awayGoalDetails;
+        this.awayYellowCards = awayYellowCards;
+    }
+
     public Match(Parcel parcel) {
         idEvent = parcel.readString();
         event = parcel.readString();
+        league = parcel.readString();
         season = parcel.readString();
         dateEvent = parcel.readString();
         startTime = parcel.readString();

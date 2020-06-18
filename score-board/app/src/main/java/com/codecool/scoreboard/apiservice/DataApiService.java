@@ -1,9 +1,7 @@
 package com.codecool.scoreboard.apiservice;
 
-import com.codecool.scoreboard.model.MatchResponse;
+import com.codecool.scoreboard.model.Event;
 import com.codecool.scoreboard.model.TeamResponse;
-
-import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
@@ -16,5 +14,5 @@ public interface DataApiService {
     Single<TeamResponse> getTeamById(@Query("id") int teamId);
 
     @GET("eventspastleague.php?id=4328")
-    Observable<List<MatchResponse>> getListOfMatchById();
+    Observable<Event> getListOfMatchById();
 }

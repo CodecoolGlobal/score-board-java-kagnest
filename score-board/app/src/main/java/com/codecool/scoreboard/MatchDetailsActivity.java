@@ -65,8 +65,8 @@ public class MatchDetailsActivity extends AppCompatActivity {
         season.setText(match.getSeason());
         date.setText(match.getDateEvent());
         startTime.setText(match.getStartTime());
-        homeScore.setText(match.getHomeScore());
-        awayScore.setText(match.getAwayScore());
+        homeScore.setText(match.getHomeScore() + "");
+        awayScore.setText(match.getAwayScore() + "");
         homeGoalDetails.setText(match.getHomeGoalDetails());
         homeYellowCard.setText(match.getHomeYellowCards());
         awayGoalDetails.setText(match.getAwayGoalDetails());
