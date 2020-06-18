@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.codecool.scoreboard.apiservice.DataApiService;
-import com.codecool.scoreboard.apiservice.RetrofitClient;
 import com.codecool.scoreboard.apiservice.UtilsApi;
 import com.codecool.scoreboard.model.Event;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,12 +35,16 @@ public class EventsFragment extends Fragment {
     String call;
     @BindView(R.id.title)
     TextView title;
-
+    @BindView(R.id.error_page)
+    ConstraintLayout errorPage;
+    @BindView(R.id.error_message)
+    TextView errorText;
+    @BindView(R.id.user_info)
+    TextView userInfo;
     @BindView(R.id.recyclerEvents)
     RecyclerView recyclerView;
 
     public EventsFragment() {
-        // Required empty public constructor
     }
 
     public static EventsFragment newInstance(String call) {
@@ -62,7 +67,6 @@ public class EventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_events, container, false);
         ButterKnife.bind(this, root);
         apiService = UtilsApi.getApiService();
@@ -83,9 +87,14 @@ public class EventsFragment extends Fragment {
                 .subscribe(new Consumer<Event>() {
                                @Override
                                public void accept(Event event) throws Exception {
-                                   adapter = new EventListAdapter(event.getEvents());
-                                   recyclerView.setAdapter(adapter);
-                                   recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                   if (!event.getEvents().isEmpty()){
+                                       adapter = new EventListAdapter(event.getEvents());
+                                       recyclerView.setAdapter(adapter);
+                                       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                   } else {
+                                       userInfo.setText(R.string.no_events);
+                                       userInfo.setVisibility(View.VISIBLE);
+                                   }
                                }
                            }
                 ));
@@ -103,15 +112,22 @@ public class EventsFragment extends Fragment {
 
                     @Override
                     public void onSuccess(Event event) {
-                        adapter = new EventListAdapter(event.getEvents());
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        if (!event.getEvents().isEmpty()){
+                            adapter = new EventListAdapter(event.getEvents());
+                            recyclerView.setAdapter(adapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        } else {
+                            userInfo.setText(R.string.no_events);
+                            userInfo.setVisibility(View.VISIBLE);
+                        }
                     }
 
                     @Override
                     public void onError(Throwable error) {
                         error.printStackTrace();
                         String errorMessage = ErrorHandlerHelper.getErrorMessage(error);
+                        errorText.setText(errorMessage);
+                        errorPage.setVisibility(View.VISIBLE);
                     }
                 });
     }

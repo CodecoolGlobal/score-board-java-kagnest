@@ -1,5 +1,7 @@
 package com.codecool.scoreboard;
 
+import java.io.IOException;
+
 import javax.net.ssl.HttpsURLConnection;
 
 import retrofit2.HttpException;
