@@ -57,6 +57,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     }
 
     public class EventListHolder extends RecyclerView.ViewHolder {
+        EventListAdapter adapter;
         final TextView event;
         final TextView homeTeam;
         final TextView awayTeam;
@@ -64,6 +65,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
         public EventListHolder(@NonNull View itemView, EventListAdapter adapter) {
             super(itemView);
+            this.adapter = adapter;
             event = itemView.findViewById(R.id.event);
             homeTeam = itemView.findViewById(R.id.homeTeam);
             awayTeam = itemView.findViewById(R.id.awayTeam);

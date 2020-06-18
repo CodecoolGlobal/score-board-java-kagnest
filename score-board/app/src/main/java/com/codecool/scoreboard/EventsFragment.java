@@ -41,6 +41,7 @@ public class EventsFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_events, container, false);
         ButterKnife.bind(this, root);
+
         retrofit = RetrofitClient.getClient();
         apiService = retrofit.create(DataApiService.class);
 
