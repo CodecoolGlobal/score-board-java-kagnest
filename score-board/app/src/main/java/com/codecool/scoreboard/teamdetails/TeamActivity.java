@@ -111,10 +111,10 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
 
     private void setBackground(String teamName) {
         if (teamName.equals("Wolves")) {
-            layout.setBackgroundResource(R.color.orange);
+            layout.setBackgroundResource(R.drawable.orange_gradient_background);
         } else if (teamName.equals("Liverpool")
                 || teamName.equals("Norwich")) {
-            layout.setBackgroundResource(R.color.green);
+            layout.setBackgroundResource(R.drawable.green_gradient_background);
         } else if (teamName.equals("Arsenal")
                 || teamName.equals("Sheffield United")
                 || teamName.equals("West Ham")
@@ -122,7 +122,7 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
                 || teamName.equals("Southampton")
                 || teamName.equals("Bournemouth")
                 || teamName.equals("Man United")) {
-            layout.setBackgroundResource(R.color.red);
+            layout.setBackgroundResource(R.drawable.red_gradient_background);
         } else if (teamName.equals("Man City")
                 || teamName.equals("Chelsea")
                 || teamName.equals("Tottenham")
@@ -132,9 +132,9 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
                 || teamName.equals("Leicester")
                 || teamName.equals("Newcastle")
                 || teamName.equals("Everton")) {
-            layout.setBackgroundResource(R.color.blue);
+            layout.setBackgroundResource(R.drawable.blue_gradient_background);
         } else if (teamName.equals("Burnley")) {
-            layout.setBackgroundResource(R.color.yellow);
+            layout.setBackgroundResource(R.drawable.yellow_gradient_background);
         }
     }
 
