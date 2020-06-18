@@ -67,9 +67,9 @@ public class MatchDetailsActivity extends AppCompatActivity {
         startTime.setText(match.getStartTime());
         homeScore.setText(match.getHomeScore() + "");
         awayScore.setText(match.getAwayScore() + "");
-        homeGoalDetails.setText(match.getHomeGoalDetails());
-        homeYellowCard.setText(match.getHomeYellowCards());
-        awayGoalDetails.setText(match.getAwayGoalDetails());
-        awayYellowCard.setText(match.getAwayYellowCards());
+        homeGoalDetails.setText(match.getHomeGoalDetails().replace(";", "\n"));
+        homeYellowCard.setText(match.getHomeYellowCards().replace(";", "\n"));
+        awayGoalDetails.setText(match.getAwayGoalDetails().replace(";", "\n"));
+        awayYellowCard.setText(match.getAwayYellowCards().replace(";", "\n"));
     }
 }

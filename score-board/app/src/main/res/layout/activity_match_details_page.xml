@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="134dp"
         android:layout_marginLeft="134dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:id="@+id/startTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="134dp"
         android:layout_marginRight="134dp"
         android:text="TextView"
@@ -114,15 +114,38 @@
         app:layout_constraintTop_toBottomOf="@+id/awayText" />
 
     <TextView
+        android:id="@+id/goalDetailsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/goals"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeScore" />
+
+    <TextView
         android:id="@+id/homeGoalDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeScore" />
+        app:layout_constraintTop_toBottomOf="@+id/goalDetailsText" />
+
+    <TextView
+        android:id="@+id/yellowCardDetailsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/yellow_cards"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeGoalDetails" />
 
     <TextView
         android:id="@+id/homeYellowCard"
@@ -130,30 +153,35 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeGoalDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/yellowCardDetailsText" />
+
 
     <TextView
         android:id="@+id/awayGoalDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:textSize="14sp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/awayScore" />
+        app:layout_constraintTop_toBottomOf="@+id/goalDetailsText" />
 
     <TextView
         android:id="@+id/awayYellowCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:textSize="14sp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/awayGoalDetails" />
+        app:layout_constraintTop_toBottomOf="@+id/yellowCardDetailsText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
