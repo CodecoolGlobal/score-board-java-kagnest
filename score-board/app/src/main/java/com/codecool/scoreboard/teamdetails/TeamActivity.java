@@ -1,10 +1,5 @@
 package com.codecool.scoreboard.teamdetails;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -67,7 +62,7 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
     Button website;
     @BindView(R.id.video)
     Button youtube;
-
+    @BindView(R.id.teamDetailsLayout)
     ScrollView layout;
 
 
@@ -119,7 +114,6 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
                 Log.d("ImplicitIntents", "Can't handle this!");
             }
         }
-        layout = findViewById(R.id.teamDetailsLayout);
     }
 
     @Override
