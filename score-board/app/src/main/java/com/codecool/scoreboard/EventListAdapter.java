@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codecool.scoreboard.model.Match;
 import com.codecool.scoreboard.model.MatchResponse;
+import com.codecool.scoreboard.teamdetails.TeamActivity;
 
 import java.util.List;
 
@@ -38,14 +39,22 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         holder.homeTeam.setText(matchResponse.getStrHomeTeam());
         holder.awayTeam.setText(matchResponse.getStrAwayTeam());
         holder.event.setText(matchResponse.getStrEvent());
+        String homeScore = matchResponse.getIntHomeScore();
+        String awayScore = matchResponse.getIntAwayScore();
+        if (homeScore == null){
+            homeScore = "0";
+        }
+        if (awayScore == null){
+            awayScore = "0";
+        }
         match = new Match(matchResponse.getIdEvent(),
                 matchResponse.getStrEvent(),
                 matchResponse.getStrLeague(),
                 matchResponse.getStrSeason(),
                 matchResponse.getDateEvent(),
                 matchResponse.getStrTime(),
-                Integer.parseInt(matchResponse.getIntHomeScore()),
-                Integer.parseInt(matchResponse.getIntAwayScore()),
+                Integer.parseInt(homeScore),
+                Integer.parseInt(awayScore),
                 matchResponse.getStrHomeGoalDetails(),
                 matchResponse.getStrHomeYellowCards(),
                 matchResponse.getStrAwayGoalDetails(),
@@ -74,6 +83,26 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
                 public void onClick(View v) {
                     Intent intent = new Intent(itemView.getContext(), MatchDetailsActivity.class);
                     intent.putExtra("match", match);
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
+            homeTeam.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), TeamActivity.class);
+                    intent.putExtra("id", events.get(getAdapterPosition()).getIdHomeTeam());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
+
+            awayTeam.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(itemView.getContext(), TeamActivity.class);
+                    intent.putExtra("id", events.get(getAdapterPosition()).getIdAwayTeam());
                     itemView.getContext().startActivity(intent);
                 }
             });
