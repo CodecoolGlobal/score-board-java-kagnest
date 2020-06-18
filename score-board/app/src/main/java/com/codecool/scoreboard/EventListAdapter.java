@@ -19,7 +19,6 @@ import java.util.List;
 public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.EventListHolder> {
 
     List<MatchResponse> events;
-    Match match;
 
     public EventListAdapter(List<MatchResponse> events) {
         this.events = events;
@@ -39,26 +38,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         holder.homeTeam.setText(matchResponse.getStrHomeTeam());
         holder.awayTeam.setText(matchResponse.getStrAwayTeam());
         holder.event.setText(matchResponse.getStrEvent());
-        String homeScore = matchResponse.getIntHomeScore();
-        String awayScore = matchResponse.getIntAwayScore();
-        if (homeScore == null){
-            homeScore = "0";
-        }
-        if (awayScore == null){
-            awayScore = "0";
-        }
-        match = new Match(matchResponse.getIdEvent(),
-                matchResponse.getStrEvent(),
-                matchResponse.getStrLeague(),
-                matchResponse.getStrSeason(),
-                matchResponse.getDateEvent(),
-                matchResponse.getStrTime(),
-                Integer.parseInt(homeScore),
-                Integer.parseInt(awayScore),
-                matchResponse.getStrHomeGoalDetails(),
-                matchResponse.getStrHomeYellowCards(),
-                matchResponse.getStrAwayGoalDetails(),
-                matchResponse.getStrAwayYellowCards());
     }
 
     @Override
@@ -83,9 +62,35 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
             detailsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Match match = getMatchObject();
                     Intent intent = new Intent(itemView.getContext(), MatchDetailsActivity.class);
                     intent.putExtra("match", match);
                     itemView.getContext().startActivity(intent);
+                }
+
+                private Match getMatchObject() {
+                    MatchResponse matchResponse = events.get(getAdapterPosition());
+                    String homeScore = matchResponse.getIntHomeScore();
+                    String awayScore = matchResponse.getIntAwayScore();
+                    if (homeScore == null){
+                        homeScore = "0";
+                    }
+                    if (awayScore == null){
+                        awayScore = "0";
+                    }
+                    Match match = new Match(matchResponse.getIdEvent(),
+                            matchResponse.getStrEvent(),
+                            matchResponse.getStrLeague(),
+                            matchResponse.getStrSeason(),
+                            matchResponse.getDateEvent(),
+                            matchResponse.getStrTime(),
+                            Integer.parseInt(homeScore),
+                            Integer.parseInt(awayScore),
+                            matchResponse.getStrHomeGoalDetails(),
+                            matchResponse.getStrHomeYellowCards(),
+                            matchResponse.getStrAwayGoalDetails(),
+                            matchResponse.getStrAwayYellowCards());
+                    return match;
                 }
             });
 
