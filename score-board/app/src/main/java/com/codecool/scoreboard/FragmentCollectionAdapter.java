@@ -1,5 +1,6 @@
 package com.codecool.scoreboard;
 
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -18,12 +19,9 @@ public class FragmentCollectionAdapter extends FragmentStatePagerAdapter {
         position = position + 1;
 
         if (position == 1) {
-            EventsFragment lastEventsFragment = new EventsFragment();
-            return lastEventsFragment;
+            return EventsFragment.newInstance("last");
         } else {
-            EventsFragment lastEventsFragment = new EventsFragment();
-            return lastEventsFragment;
-
+            return EventsFragment.newInstance("next");
         }
     }
 
