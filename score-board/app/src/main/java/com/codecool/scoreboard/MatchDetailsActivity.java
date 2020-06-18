@@ -2,6 +2,7 @@ package com.codecool.scoreboard;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +47,12 @@ public class MatchDetailsActivity extends AppCompatActivity {
     @BindView(R.id.awayYellowCard)
     TextView awayYellowCard;
 
+    @BindView(R.id.goalDetailsText)
+    TextView goalText;
+
+    @BindView(R.id.yellowCardDetailsText)
+    TextView yellowText;
+
     Match match;
 
 
@@ -59,6 +66,7 @@ public class MatchDetailsActivity extends AppCompatActivity {
         match = intent.getParcelableExtra("match");
         displayData(match);
     }
+
     private void displayData(Match match) {
         event.setText(match.getEvent());
         league.setText(match.getLeague());
@@ -67,9 +75,34 @@ public class MatchDetailsActivity extends AppCompatActivity {
         startTime.setText(match.getStartTime());
         homeScore.setText(match.getHomeScore() + "");
         awayScore.setText(match.getAwayScore() + "");
-        homeGoalDetails.setText(match.getHomeGoalDetails().replace(";", "\n"));
-        homeYellowCard.setText(match.getHomeYellowCards().replace(";", "\n"));
-        awayGoalDetails.setText(match.getAwayGoalDetails().replace(";", "\n"));
-        awayYellowCard.setText(match.getAwayYellowCards().replace(";", "\n"));
+
+        System.out.println("ITT VAN A HOMEGD" + match.getHomeGoalDetails());
+        if (match.getHomeGoalDetails() == null) {
+            homeGoalDetails.setText("");
+            goalText.setVisibility(View.GONE);
+        } else {
+            homeGoalDetails.setText(match.getHomeGoalDetails().replace(";", "\n"));
+        }
+
+        if (match.getHomeYellowCards() == null) {
+            homeYellowCard.setText("");
+            yellowText.setVisibility(View.GONE);
+        } else {
+            homeYellowCard.setText(match.getHomeGoalDetails().replace(";", "\n"));
+        }
+
+        if (match.getAwayGoalDetails() == null) {
+            awayGoalDetails.setText("");
+            goalText.setVisibility(View.GONE);
+        } else {
+            awayGoalDetails.setText(match.getHomeGoalDetails().replace(";", "\n"));
+        }
+
+        if (match.getAwayYellowCards() == null) {
+            awayYellowCard.setText("");
+            yellowText.setVisibility(View.GONE);
+        } else {
+            awayYellowCard.setText(match.getHomeGoalDetails().replace(";", "\n"));
+        }
     }
 }

@@ -19,17 +19,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
 
 
 public class EventsFragment extends Fragment {
 
     DataApiService apiService;
-    CompositeDisposable compositeDisposable = new CompositeDisposable();
     EventListAdapter adapter;
+    Retrofit retrofit;
     private static final String CALL_TYPE = "call_type";
     String call;
     @BindView(R.id.title)
@@ -77,23 +76,32 @@ public class EventsFragment extends Fragment {
         retrofit = RetrofitClient.getClient();
         apiService = retrofit.create(DataApiService.class);
 
-        fetchData();
         return root;
     }
 
     private void fetchLastMacthesData() {
-        compositeDisposable.add(apiService.getListOfLastMatchesById()
+        apiService.getListOfLastMatchesById()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Event>() {
+                .subscribe(new SingleObserver<Event>() {
                                @Override
-                               public void accept(Event event) throws Exception {
+                               public void onSubscribe(Disposable d) {
+
+                               }
+
+                               @Override
+                               public void onSuccess(Event event) {
                                    adapter = new EventListAdapter(event.getEvents());
                                    recyclerView.setAdapter(adapter);
                                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                                }
+
+                               @Override
+                               public void onError(Throwable e) {
+
+                               }
                            }
-                ));
+                );
     }
 
     private void fetchNextMatchesData(){

@@ -3,7 +3,6 @@ package com.codecool.scoreboard.apiservice;
 import com.codecool.scoreboard.model.Event;
 import com.codecool.scoreboard.model.TeamResponse;
 
-import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -14,7 +13,7 @@ public interface DataApiService {
     Single<TeamResponse> getTeamById(@Query("id") String teamId);
 
     @GET("eventspastleague.php?id=4328")
-    Observable<Event> getListOfLastMatchesById();
+    Single<Event> getListOfLastMatchesById();
 
 
     @GET("eventsnextleague.php?id=4328")
