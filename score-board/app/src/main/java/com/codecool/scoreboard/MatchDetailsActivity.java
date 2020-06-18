@@ -88,21 +88,21 @@ public class MatchDetailsActivity extends AppCompatActivity {
             homeYellowCard.setText("");
             yellowText.setVisibility(View.GONE);
         } else {
-            homeYellowCard.setText(match.getHomeGoalDetails().replace(";", "\n"));
+            homeYellowCard.setText(match.getHomeYellowCards().replace(";", "\n"));
         }
 
         if (match.getAwayGoalDetails() == null) {
             awayGoalDetails.setText("");
             goalText.setVisibility(View.GONE);
         } else {
-            awayGoalDetails.setText(match.getHomeGoalDetails().replace(";", "\n"));
+            awayGoalDetails.setText(match.getAwayGoalDetails().replace(";", "\n"));
         }
 
         if (match.getAwayYellowCards() == null) {
             awayYellowCard.setText("");
             yellowText.setVisibility(View.GONE);
         } else {
-            awayYellowCard.setText(match.getHomeGoalDetails().replace(";", "\n"));
+            awayYellowCard.setText(match.getAwayYellowCards().replace(";", "\n"));
         }
     }
 }
