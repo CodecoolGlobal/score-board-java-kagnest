@@ -5,11 +5,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codecool.scoreboard.R;
 import com.codecool.scoreboard.model.Team;
@@ -18,6 +22,7 @@ import com.squareup.picasso.Picasso;
 public class TeamActivity extends AppCompatActivity implements TeamContract.View {
 
     private TeamContract.Presenter presenter;
+    private Team team;
 
     @BindView(R.id.error_page)
     ConstraintLayout errorPage;
@@ -69,10 +74,48 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
 
         String id = getIntent().getStringExtra("id");
         presenter.getTeamById(id);
+
+        website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = team.getWebsite();
+                getWebsite(url);
+            }
+        });
+
+        youtube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = team.getYoutubeVideo();
+                getWebsite(url);
+            }
+        });
+    }
+
+    private void getWebsite(String url) {
+        if (url == null || url.equals("")) {
+            Toast.makeText(getApplicationContext(), R.string.no_website_available, Toast.LENGTH_SHORT).show();
+        } else {
+            Uri webpage;
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                String urlc = "http://" + url;
+                webpage = Uri.parse(urlc);
+            } else {
+                webpage = Uri.parse(url);
+            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Log.d("ImplicitIntents", "Can't handle this!");
+            }
+        }
     }
 
     @Override
     public void showTeam(Team team) {
+
+        this.team = team;
 
         Picasso.get()
                 .load(team.getTeamLogo())
