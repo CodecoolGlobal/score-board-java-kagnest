@@ -1,19 +1,21 @@
 package com.codecool.scoreboard.teamdetails;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.codecool.scoreboard.R;
 import com.codecool.scoreboard.model.Team;
 import com.squareup.picasso.Picasso;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class TeamActivity extends AppCompatActivity implements TeamContract.View {
 
@@ -56,6 +58,8 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
     @BindView(R.id.video)
     Button youtube;
 
+    ScrollView layout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +73,7 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
 
         String id = getIntent().getStringExtra("id");
         presenter.getTeamById(id);
+        layout = findViewById(R.id.teamDetailsLayout);
     }
 
     @Override
@@ -100,7 +105,37 @@ public class TeamActivity extends AppCompatActivity implements TeamContract.View
         teamHeader.setVisibility(View.VISIBLE);
         teamDetails.setVisibility(View.VISIBLE);
         stadiumDetails.setVisibility(View.VISIBLE);
+        setBackground(team.getTeamName());
 
+    }
+
+    private void setBackground(String teamName) {
+        if (teamName.equals("Wolves")) {
+            layout.setBackgroundResource(R.color.orange);
+        } else if (teamName.equals("Liverpool")
+                || teamName.equals("Norwich")) {
+            layout.setBackgroundResource(R.color.green);
+        } else if (teamName.equals("Arsenal")
+                || teamName.equals("Sheffield United")
+                || teamName.equals("West Ham")
+                || teamName.equals("Watford")
+                || teamName.equals("Southampton")
+                || teamName.equals("Bournemouth")
+                || teamName.equals("Man United")) {
+            layout.setBackgroundResource(R.color.red);
+        } else if (teamName.equals("Man City")
+                || teamName.equals("Chelsea")
+                || teamName.equals("Tottenham")
+                || teamName.equals("Aston Villa")
+                || teamName.equals("Brighton")
+                || teamName.equals("Crystal Palace")
+                || teamName.equals("Leicester")
+                || teamName.equals("Newcastle")
+                || teamName.equals("Everton")) {
+            layout.setBackgroundResource(R.color.blue);
+        } else if (teamName.equals("Burnley")) {
+            layout.setBackgroundResource(R.color.yellow);
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/website_btn_margin"
+        android:background="@drawable/button_shape"
         android:text="@string/website_btn_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/video"
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin16"
         android:layout_marginRight="@dimen/margin16"
+        android:background="@drawable/button_shape"
         android:text="@string/video_btn_label"
         app:layout_constraintBaseline_toBaselineOf="@+id/website"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +48,7 @@
         android:layout_marginTop="@dimen/margin16"
         android:text="Arsenal"
         android:textSize="@dimen/team_name_textsize"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
