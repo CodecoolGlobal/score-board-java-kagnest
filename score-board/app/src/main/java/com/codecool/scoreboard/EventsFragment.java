@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,10 @@ public class EventsFragment extends Fragment {
     String call;
     @BindView(R.id.title)
     TextView title;
+    @BindView(R.id.error_message)
+    TextView errorText;
+    @BindView(R.id.error_page)
+    ConstraintLayout errorPage;
 
     @BindView(R.id.recyclerEvents)
     RecyclerView recyclerView;
@@ -97,8 +102,11 @@ public class EventsFragment extends Fragment {
                                }
 
                                @Override
-                               public void onError(Throwable e) {
-
+                               public void onError(Throwable error) {
+                                   error.printStackTrace();
+                                   String errorMessage = ErrorHandlerHelper.getErrorMessage(error);
+                                   errorText.setText(errorMessage);
+                                   errorPage.setVisibility(View.VISIBLE);
                                }
                            }
                 );
@@ -125,6 +133,8 @@ public class EventsFragment extends Fragment {
                     public void onError(Throwable error) {
                         error.printStackTrace();
                         String errorMessage = ErrorHandlerHelper.getErrorMessage(error);
+                        errorText.setText(errorMessage);
+                        errorPage.setVisibility(View.VISIBLE);
                     }
                 });
     }
