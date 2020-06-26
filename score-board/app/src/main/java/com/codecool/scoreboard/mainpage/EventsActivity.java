@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class EventsActivity extends AppCompatActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;

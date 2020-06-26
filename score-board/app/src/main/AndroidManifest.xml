@@ -14,7 +14,7 @@
             android:name=".matchdetailspage.MatchDetailsActivity"
             android:label="@string/title_activity_match_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".mainpage.MainActivity">
+        <activity android:name=".mainpage.EventsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
