@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codecool.scoreboard.R;
 import com.codecool.scoreboard.matchdetailspage.MatchDetailsActivity;
+import com.codecool.scoreboard.model.DataAdapter;
 import com.codecool.scoreboard.model.Match;
 import com.codecool.scoreboard.model.MatchResponse;
 import com.codecool.scoreboard.teamdetails.TeamActivity;
@@ -72,26 +73,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
                 private Match getMatchObject() {
                     MatchResponse matchResponse = events.get(getAdapterPosition());
-                    String homeScore = matchResponse.getIntHomeScore();
-                    String awayScore = matchResponse.getIntAwayScore();
-                    if (homeScore == null){
-                        homeScore = "0";
-                    }
-                    if (awayScore == null){
-                        awayScore = "0";
-                    }
-                    Match match = new Match(matchResponse.getIdEvent(),
-                            matchResponse.getStrEvent(),
-                            matchResponse.getStrLeague(),
-                            matchResponse.getStrSeason(),
-                            matchResponse.getDateEvent(),
-                            matchResponse.getStrTime(),
-                            Integer.parseInt(homeScore),
-                            Integer.parseInt(awayScore),
-                            matchResponse.getStrHomeGoalDetails(),
-                            matchResponse.getStrHomeYellowCards(),
-                            matchResponse.getStrAwayGoalDetails(),
-                            matchResponse.getStrAwayYellowCards());
+                    Match match = DataAdapter.getMatchObject(matchResponse);
                     return match;
                 }
             });
