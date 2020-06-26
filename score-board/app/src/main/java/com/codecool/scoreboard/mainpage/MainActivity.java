@@ -1,6 +1,8 @@
-package com.codecool.scoreboard;
+package com.codecool.scoreboard.mainpage;
 
 import android.os.Bundle;
+
+import com.codecool.scoreboard.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;

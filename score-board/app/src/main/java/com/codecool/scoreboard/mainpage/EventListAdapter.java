@@ -1,4 +1,4 @@
-package com.codecool.scoreboard;
+package com.codecool.scoreboard.mainpage;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codecool.scoreboard.R;
+import com.codecool.scoreboard.matchdetailspage.MatchDetailsActivity;
 import com.codecool.scoreboard.model.Match;
 import com.codecool.scoreboard.model.MatchResponse;
 import com.codecool.scoreboard.teamdetails.TeamActivity;

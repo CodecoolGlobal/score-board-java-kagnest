@@ -1,4 +1,4 @@
-package com.codecool.scoreboard;
+package com.codecool.scoreboard.mainpage;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
