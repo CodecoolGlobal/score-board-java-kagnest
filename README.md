@@ -4,6 +4,10 @@
 
 You recently visited your grandfather who just started to use his new smartphone, but he is a little sceptical about the necessity of it. From all the strange modern devices he prefers the television, because that's where he can hear about the game results of his favorite sport and how his favorite team is doing. You decide that the best way to convice him about how great smartphones are is to write an app for him, where he can check the latest sport results anytime, no need to wait for the evening News to start. At first, you only include one league though.
 
+## Demo
+
+![scoreboard.gif](scoreboard.gif)
+
 ## What are you going to learn?
 
 - practice working with `JSON` 
