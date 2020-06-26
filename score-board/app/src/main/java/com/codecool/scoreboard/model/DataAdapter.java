@@ -41,4 +41,28 @@ public class DataAdapter {
         sb.append(leaguesList.get(i));
         return sb.toString();
     }
+
+    public static Match getMatchObject(MatchResponse matchResponse){
+        String homeScore = matchResponse.getIntHomeScore();
+        String awayScore = matchResponse.getIntAwayScore();
+        if (homeScore == null){
+            homeScore = "0";
+        }
+        if (awayScore == null){
+            awayScore = "0";
+        }
+        Match match = new Match(matchResponse.getIdEvent(),
+                matchResponse.getStrEvent(),
+                matchResponse.getStrLeague(),
+                matchResponse.getStrSeason(),
+                matchResponse.getDateEvent(),
+                matchResponse.getStrTime(),
+                Integer.parseInt(homeScore),
+                Integer.parseInt(awayScore),
+                matchResponse.getStrHomeGoalDetails(),
+                matchResponse.getStrHomeYellowCards(),
+                matchResponse.getStrAwayGoalDetails(),
+                matchResponse.getStrAwayYellowCards());
+        return match;
+    }
 }

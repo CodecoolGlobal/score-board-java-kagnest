@@ -12,7 +12,6 @@ public interface TeamContract {
 
         void showEmptyTeamData();
 
-        void showErrorMessage(String errorMessage);
     }
 
     interface Presenter extends BasePresenter {

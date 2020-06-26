@@ -1,6 +1,8 @@
-package com.codecool.scoreboard;
+package com.codecool.scoreboard.mainpage;
 
 import android.os.Bundle;
+
+import com.codecool.scoreboard.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -8,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class EventsActivity extends AppCompatActivity {
 
     @BindView(R.id.viewPager)
     ViewPager viewPager;

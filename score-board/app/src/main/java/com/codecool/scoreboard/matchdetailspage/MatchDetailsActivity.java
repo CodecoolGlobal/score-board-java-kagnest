@@ -1,4 +1,4 @@
-package com.codecool.scoreboard;
+package com.codecool.scoreboard.matchdetailspage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.codecool.scoreboard.R;
 import com.codecool.scoreboard.model.Match;
 
 import butterknife.BindView;
